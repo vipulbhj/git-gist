@@ -72,7 +72,7 @@ class GitGist extends HTMLElement {
                 let fileNameAsKeys = Object.keys(files)[0];
                 const allData = files[fileNameAsKeys].content.replace(/[ ]/gm, "&nbsp").split('\n');
                 const listItems = allData.map(item => {
-                    return `<li>${item}</li>`;
+                    return `<li><code>${item}</code></li>`;
                 });
                 this.gistData = `<ol>${listItems.join('')}</ol>`;
                 this.render();
