@@ -6,7 +6,10 @@ git-gist is a custom component which can be used to integrate gist's in your web
 
 **git-gist** is build using the web component api, which allows the construction of isoloated component which the browser understands natively, meaning you can use them with React, Angular, Vue, the new hyped JS framework and my personal favourite HTML <3.
 
-
+## How to find the _gist id_ of your gist:-
+Well its your lucky day, as its right there in the url when you open up a gist in your browser. The format look like `https://gist.github.com/<your-user-name>/gistid`.    
+That _gistid_ is a big long string of numbers mostly that you just need to copy and use as you please.
+ 
 ## How to use:- 
 Clone this repo or simply just copy the contents of the file `git-gist.js` into your project in a javascript file whose name can be anything but I personally recommend going with the same name.
 
@@ -19,3 +22,6 @@ Now all that's left to do is to include this file in your HTML in the head secti
 ```
 
 And that's it. :)
+
+# Demo, Yayy!!
+Clone or download this project and open up index.html in your favourite browser. Your Welcome
