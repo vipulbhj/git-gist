@@ -58,10 +58,10 @@ class GitGist extends HTMLElement {
         super();
         this.gistData = '';
         this.container = undefined;
+        this.getGistDataFromGistId = this.getGistDataFromGistId.bind(this);
     }
 
-    getGistDataFromGistId = (gistId) => {
-        console.log('Id', gistId);
+    getGistDataFromGistId(gistId) {
         const gistUrl = `https://api.github.com/gists/${gistId}`;
         fetch(gistUrl)
             .then(r => r.json())
@@ -104,7 +104,7 @@ class GitGist extends HTMLElement {
             this.shadowRoot.appendChild(template.content.cloneNode(true));
             this.container = this.shadowRoot.getElementById('container');
             if(this.gistId) {
-                this.getGistDataFromGistId(this.gistId, this.gistId);
+                this.getGistDataFromGistId(this.gistId);
                 this.gistData = 'Loading...';
                 this.render(); 
             }
@@ -115,7 +115,7 @@ class GitGist extends HTMLElement {
         if (name === 'gist-id') {
             if (newVal) {
                 this.gistId = newVal;
-                this.getGistDataFromGistId(this.gistId, this.gistId);
+                this.getGistDataFromGistId(this.gistId);
                 this.gistData = 'Loading...';
                 this.render();
             } else {
