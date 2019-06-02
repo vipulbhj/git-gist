@@ -19,3 +19,6 @@ Now all that's left to do is to include this file in your HTML in the head secti
 ```
 
 And that's it. :)
+
+# Demo, Yayy!!
+Clone or download this project and open up index.html in your favourite browser. Your Welcome
