@@ -8,7 +8,7 @@ template.innerHTML = `
         /* width */
         ::-webkit-scrollbar {
             width: 3px;
-            height: 3px;
+            height: 0px;
         }
 
         /* Track */
@@ -18,7 +18,7 @@ template.innerHTML = `
         
         /* Handle */
         ::-webkit-scrollbar-thumb {
-            background: #ffce00; 
+            background: yellowgreen; 
         }
 
         /* Handle on hover */
@@ -27,7 +27,7 @@ template.innerHTML = `
         }
 
         #container {
-            padding: 20px;
+            padding: 20px 20px 20px 0px;
             font-size: 1.2em;
             font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
             border: 1px solid black;
@@ -44,6 +44,16 @@ template.innerHTML = `
         li {
             font-size: 1em;
             padding-left: 20px;
+        }
+
+        code::selection {
+            background-color: #ffff00;
+            color: tomato;
+        }
+
+        code::-moz-selection {
+            background-color: #ffff00;
+            color: tomato;
         }
 
     </style>
@@ -81,7 +91,7 @@ class GitGist extends HTMLElement {
     }
 
     render() {
-        if (this.gistData) {
+        if (this.gistData && this.container) {
             this.container.innerHTML = this.gistData;
         }
     }
@@ -112,7 +122,7 @@ class GitGist extends HTMLElement {
     }
 
     attributeChangedCallback(name, oldVal, newVal) {
-        if (name === 'gist-id') {
+        if (name === 'gist-id' && oldVal !== newVal) {
             if (newVal) {
                 this.gistId = newVal;
                 this.getGistDataFromGistId(this.gistId);
